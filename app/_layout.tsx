@@ -1,6 +1,8 @@
 
 ;
+import CustmHeader from ' @/Components/CustmHeader';
 import { Stack } from 'expo-router';
+
 
 
 
@@ -17,7 +19,9 @@ export const unstable_settings = {
   return (
   
       <Stack>
-        <Stack.Screen name="index" options={{ }} />
+        <Stack.Screen name="index" options={{ 
+          header:()=><CustmHeader/>
+        }} />
       
       </Stack>
 
