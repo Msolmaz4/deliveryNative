@@ -5,22 +5,32 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  TextInput,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import Colors from " @/constants/Colors";
+import { Link } from "expo-router";
 
-
-
-
-const SearchBar =()=>(
-    <View style={styles.searchContainer}>
-        <Text>der</Text>
+const SearchBar = () => (
+  <View style={styles.searchContainer}>
+    <View style={styles.searchSection}>
+    <View style={styles.searchField}>
+      <Ionicons name="search-outline" style={styles.searchIcon} size={20} color={Colors.medium}/>
+      <TextInput style={styles.input} placeholder="Restaurants,groceries,dishes" />
     </View>
-)
-
-
-
+    <Link href={"/"} asChild>
+      <TouchableOpacity style={styles.optionButton}>
+        <Ionicons
+          name="options-outline"
+          size={20}
+          color={Colors.light.text}
+        ></Ionicons>
+      </TouchableOpacity>
+    </Link>
+    </View>
+  </View>
+);
 
 const CustmHeader = () => {
   return (
@@ -47,9 +57,8 @@ const CustmHeader = () => {
             color={Colors.dark.background}
           ></Ionicons>
         </TouchableOpacity>
-        
       </View>
-      <SearchBar/>
+      <SearchBar />
     </SafeAreaView>
   );
 };
@@ -81,13 +90,38 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 50,
   },
-  locationName:{
-    flexDirection:'row',
-    alignItems:'center'
+  locationName: {
+    flexDirection: "row",
+    alignItems: "center",
   },
-  searchContainer:{
+  searchContainer: {
     height: 60,
-    backgroundColor: "red",
+    backgroundColor: "#fff",
+  },
+  searchSection: {
+    flexDirection: "row",
+    gap: 20,
+    flex: 1,
+    paddingHorizontal: 20,
+    alignItems: "center",
+  },
+  searchField: {
+    flex: 1,
+    borderRadius: 8,
+    flexDirection:'row',
+    alignItems:'center',
+  },
+  optionButton: {
+    padding: 10,
+    borderRadius: 50,
+  },
+  input:{
+    padding:10,
+    color:Colors.mediumDark,
+  },
+  searchIcon:{
+   paddingLeft:10,
+
   }
 });
 export default CustmHeader;

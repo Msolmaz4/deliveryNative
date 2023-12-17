@@ -1,0 +1,6 @@
+
+npm i @gorhom/bottom-sheet komutu, @gorhom/bottom-sheet adlı bir npm paketini projenize eklemek için kullanılır. Bu paket, alt sayfa veya alt kart gibi içerikleri göstermek için kullanılan bir alt sayfa (bottom sheet) bileşeni sağlar. Bottom sheet, kullanıcıya daha fazla içeriği göstermek veya bir seçenek setini sunmak için ekranın alt kısmında beliren bir arayüz öğesidir.
+
+@gorhom/bottom-sheet paketi, React Native projeleri için geliştirilmiş ve kullanımı oldukça basit bir alt sayfa bileşeni sunar. Bu tür bir bileşen, kullanıcının ekranın altından yukarıya doğru kaydırarak veya belirli bir olay tetiklendiğinde açılabilir. Genellikle sayfa içeriğini kapatmadan ek bir içeriği göstermek için kullanılır.
+
+Kurulumu yaptıktan sonra, belirli bir olay veya kullanıcı etkileşimi ile alt sayfayı açabilir ve isteğe bağlı olarak içeriğini özelleştirebilirsiniz. Detaylı kullanım talimatlarına ve örnek kodlara @gorhom/bottom-sheet paketinin resmi belgelerinden veya örnek projelerinden ulaşabilirsiniz.

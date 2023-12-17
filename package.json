@@ -8,13 +8,13 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll"
-    
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
+    "@gorhom/bottom-sheet": "^4.5.1",
     "@react-navigation/native": "^6.0.2",
     "expo": "~49.0.18",
     "expo-font": "~11.4.0",
