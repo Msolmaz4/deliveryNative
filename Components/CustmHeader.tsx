@@ -8,9 +8,11 @@ import {
   TextInput,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
+import React, { useRef } from "react";
 import Colors from " @/constants/Colors";
 import { Link } from "expo-router";
+import BottomSheet from "./BottomSheet";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 const SearchBar = () => (
   <View style={styles.searchContainer}>
@@ -33,10 +35,16 @@ const SearchBar = () => (
 );
 
 const CustmHeader = () => {
+ const bottomSheetRef = useRef<BottomSheetModal>(null);
+  const openMoModal = ()=>{
+    bottomSheetRef.current?.present()
+  }
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "red" }}>
+      <BottomSheet ref={bottomSheetRef}/>
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={openMoModal}>
           <Image
             style={styles.bike}
             source={require("../assets/images/favicon.png")}
