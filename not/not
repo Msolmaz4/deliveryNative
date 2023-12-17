@@ -4,3 +4,8 @@ npm i @gorhom/bottom-sheet komutu, @gorhom/bottom-sheet adlı bir npm paketini p
 @gorhom/bottom-sheet paketi, React Native projeleri için geliştirilmiş ve kullanımı oldukça basit bir alt sayfa bileşeni sunar. Bu tür bir bileşen, kullanıcının ekranın altından yukarıya doğru kaydırarak veya belirli bir olay tetiklendiğinde açılabilir. Genellikle sayfa içeriğini kapatmadan ek bir içeriği göstermek için kullanılır.
 
 Kurulumu yaptıktan sonra, belirli bir olay veya kullanıcı etkileşimi ile alt sayfayı açabilir ve isteğe bağlı olarak içeriğini özelleştirebilirsiniz. Detaylı kullanım talimatlarına ve örnek kodlara @gorhom/bottom-sheet paketinin resmi belgelerinden veya örnek projelerinden ulaşabilirsiniz.
+Hata aldik sonra   https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/
+
+ 1 npx expo install react-native-reanimated
+ 2"react-native-reanimated/plugin" bunu babel yapistirdik 
+ 3npx expo start -c
