@@ -38,3 +38,46 @@ const MyFlatList = () => {
 };
 
 export default MyFlatList;
+useSharedValue fonksiyonu, bir değeri paylaşılan bir değer (shared value) haline getirir. Paylaşılan değerler, animasyonların ve diğer interaktif öğelerin değerlerini kontrol etmek için kullanılır. Bu değerler, işletim sistemi iş parçacığı dışında bulunan bir çalışma zamanında saklanır ve bu nedenle performanslı animasyonlar elde etmek için kullanılır.
+
+Örneğin, useSharedValue fonksiyonunu kullanarak bir genişlik değeri oluşturabilir ve bu değeri animasyonlu bir şekilde güncelleyebilirsiniz. Aşağıdaki örnek, bir paylaşılan değeri genişlik (width) değeri olarak kullanarak bir View'in genişliğini animasyonlu bir şekilde değiştirir:
+
+import React from 'react';
+import { View, Text, Button } from 'react-native';
+import { useSharedValue, withSpring } from 'react-native-reanimated';
+
+const AnimatedView = () => {
+  const flexWidth = useSharedValue(0);
+
+  const handleAnimate = () => {
+    flexWidth.value = withSpring(300, {}, (isFinished) => {
+      // Animasyon tamamlandığında yapılacak işlemler
+      if (isFinished) {
+        console.log('Animasyon tamamlandı!');
+      }
+    });
+  };
+
+  return (
+    <View>
+      <View
+        style={{
+          width: flexWidth.value,
+          height: 100,
+          backgroundColor: 'blue',
+        }}
+      >
+        <Text>Animasyonlu View</Text>
+      </View>
+      <Button title="Animate" onPress={handleAnimate} />
+    </View>
+  );
+};
+
+export default AnimatedView;
+Bu örnekte, flexWidth adlı paylaşılan bir değer oluşturuluyor. Ardından, bir animasyon tetiklendiğinde flexWidth.value değeri, belirli bir animasyon efekti kullanılarak güncelleniyor. Bu, animasyonlu bir genişlik değişikliğine neden olur.
+
+
+
+
+

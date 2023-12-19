@@ -6,14 +6,14 @@ import {
   ListRenderItem,
   Button,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Colors from " @/constants/Colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "expo-router";
 import categories from " @/assets/data/filter.json";
 import { Ionicons } from "@expo/vector-icons";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import { useSharedValue } from "react-native-reanimated";
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 
 interface Category {
   name: string;
@@ -54,6 +54,18 @@ const Filter = () => {
   const [items, setItems] = useState<Category[]>(categories);
   const [selected,setSelected] = useState<Category[]>([])
   const flexWidth = useSharedValue(0)
+  const scale = useSharedValue(0)
+  useEffect(()=>{
+   const hasSelected = selected.length >0
+   const selectedItems = items.filter((item)=>item.checked)
+   const newSelected = selectedItems.length > 0
+   if(hasSelected !== newSelected){
+    console.log('has changed')
+    flexWidth.value = withTiming(newSelected ? 150 : 0 ) 
+    scale.value = withTiming(newSelected ? 1: 0)
+   }
+   setSelected(selectedItems)
+  },[items])
 
   const handleClearAll = () => {
     const updatedItems = items.map((item) => {
@@ -63,6 +75,17 @@ const Filter = () => {
     });
     setItems(updatedItems);
   };
+  const animatedStyles = useAnimatedStyle(()=>{
+    return {
+      width:flexWidth.value,
+      opacity:flexWidth.value > 0 ? 1 : 0
+    }
+  })
+  const animatedText = useAnimatedStyle(()=>{
+    return {
+      transform :[{scale:scale.value}]
+    }
+  })
 
   const renderItem: ListRenderItem<Category> = ({ item, index }) => (
     <View style={styles.row}>
@@ -108,7 +131,7 @@ const Filter = () => {
   );
   return (
     <View style={styles.container}>
-      <Button title="Clear All" onPress={handleClearAll} />
+    
       <FlatList
         data={items}
         renderItem={renderItem}
@@ -116,12 +139,23 @@ const Filter = () => {
       />
       <View style={{ height: 90 }} />
       <View style={styles.footer}>
+        <View style={styles.btnContainer}>
+        <Animated.View style={[animatedStyles,styles.outlineButton]}>
+        <TouchableOpacity
+        
+          onPress={handleClearAll}
+        >
+          <Animated.Text style={[animatedText,styles.outlineButtonText]}>Clear All</Animated.Text>
+        </TouchableOpacity>
+</Animated.View>
+
         <TouchableOpacity
           style={styles.fullButton}
           onPress={() => navigastion.goBack()}
         >
-          <Text style={styles.footerText}>Duygumu kocamn seviyorum</Text>
+          <Text style={styles.footerText}>Duygu</Text>
         </TouchableOpacity>
+      </View>
       </View>
     </View>
   );
@@ -138,7 +172,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    height: 80,
+    height: 100,
     backgroundColor: "#fff",
     padding: 10,
     elevation: 10, // Gölge efekti için elevation değeri
@@ -154,6 +188,8 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: "center",
     borderRadius: 8,
+    flex:1,
+    height:56
   },
   footerText: {
     color: "#fff",
@@ -189,5 +225,21 @@ const styles = StyleSheet.create({
   itemText: {
     flex: 1,
   },
+  btnContainer:{
+    flexDirection:'row',
+    gap:12,
+    justifyContent:'center',
+  },
+  outlineButton:{
+    padding: 16,
+    alignItems: "center",
+    borderRadius: 8,
+    height:56
+  },
+  outlineButtonText:{
+    color:Colors.primary,
+    fontWeight:"bold",
+    fontSize:16
+  }
 });
 export default Filter;
