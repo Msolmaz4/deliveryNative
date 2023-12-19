@@ -13,6 +13,7 @@ import { useNavigation } from "expo-router";
 import categories from " @/assets/data/filter.json";
 import { Ionicons } from "@expo/vector-icons";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { useSharedValue } from "react-native-reanimated";
 
 interface Category {
   name: string;
@@ -51,6 +52,8 @@ const ItemBox = () => (
 const Filter = () => {
   const navigastion = useNavigation();
   const [items, setItems] = useState<Category[]>(categories);
+  const [selected,setSelected] = useState<Category[]>([])
+  const flexWidth = useSharedValue(0)
 
   const handleClearAll = () => {
     const updatedItems = items.map((item) => {
