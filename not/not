@@ -9,3 +9,32 @@ Hata aldik sonra   https://docs.swmansion.com/react-native-reanimated/docs/funda
  1 npx expo install react-native-reanimated
  2"react-native-reanimated/plugin" bunu babel yapistirdik 
  3npx expo start -c
+
+ import React from 'react';
+
+const MyFlatList = () => {
+  const data = [
+    { id: '1', title: 'Item 1' },
+    { id: '2', title: 'Item 2' },
+    { id: '3', title: 'Item 3' },
+    // ... Diğer öğeler
+  ];
+
+  const renderItem = ({ item }) => (
+    <View>
+      <Text>{item.title}</Text>
+    </View>
+  );
+
+  const keyExtractor = (item) => item.id;
+
+  return (
+    <FlatList
+      data={data}
+      renderItem={renderItem}
+      keyExtractor={keyExtractor}
+    />
+  );
+};
+
+export default MyFlatList;
