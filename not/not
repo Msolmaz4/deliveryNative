@@ -81,3 +81,7 @@ Bu örnekte, flexWidth adlı paylaşılan bir değer oluşturuluyor. Ardından, 
 
 
 
+https://console.cloud.google.com/apis/credentials?project=delivery-408723 burdan google map apii keu  aldik ve 
+crendential  gitiribce api key var uyerine tila vr  API restrictions bunu ltindaki ikondan resrtiy key secip once places api yazip soleyleyip sonra libray etkinletirip burada tekraradan aratip okeyleyip save yapiyorsun
+somraandoid secilip devam ediluor
+https://github.com/FaridSafi/react-native-google-places-autocompleteburdan aiyur complete zptik

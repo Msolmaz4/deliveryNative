@@ -35,7 +35,7 @@ const SearchBar = () => (
   </View>
 );
 
-const CustmHeader = () => {
+const CustomHeader = () => {
  const bottomSheetRef = useRef<BottomSheetModal>(null);
   const openMoModal = ()=>{
     bottomSheetRef.current?.present()
@@ -133,4 +133,4 @@ const styles = StyleSheet.create({
 
   }
 });
-export default CustmHeader;
+export default CustomHeader;
