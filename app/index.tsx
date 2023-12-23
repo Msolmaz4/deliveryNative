@@ -1,4 +1,5 @@
 import Categories from ' @/Components/Categories';
+import Restaurants from ' @/Components/Restaurants';
 import {
   StyleSheet,
   Text,
@@ -14,9 +15,11 @@ const Page = () => {
     <ScrollView style={styles.scrollView}>
       <Categories/>
       <Text style={styles.text}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        .
-      </Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</Text>
+        <Restaurants/>
+        <Text style={styles.text}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</Text>
+        <Restaurants/>
     </ScrollView>
   </SafeAreaView>
   );
@@ -25,7 +28,7 @@ const Page = () => {
 
   const styles = StyleSheet.create({
     container: {
-      top: 80,
+      top: 100,
       backgroundColor:"#fff",
       height:160
       

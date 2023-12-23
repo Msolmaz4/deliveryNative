@@ -74,7 +74,7 @@ const CustomHeader = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 60,
+    height: 50,
     backgroundColor: "#fff",
     flexDirection: "row",
     gap: 20,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   },
   searchSection: {
     flexDirection: "row",
-    gap: 20,
+    gap: 10,
     flex: 1,
     paddingHorizontal: 20,
     alignItems: "center",
