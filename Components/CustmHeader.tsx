@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   searchContainer: {
-    height: 60,
+    height: 50,
     backgroundColor: "#fff",
   },
   searchSection: {
