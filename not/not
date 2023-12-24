@@ -134,3 +134,25 @@ npm i deprecated-react-native-prop-types@2.2.0
 navigation.setOptions fonksiyonu, bir ekranın navigasyon seçeneklerini güncellemek için kullanılır. Bu fonksiyon, genellikle bir ekranın başlık çubuğunu, başlık rengini, geçiş animasyonlarını veya diğer navigasyon seçeneklerini değiştirmek için kullanılır.
 
 Örneğin, sizin verdiğiniz örnekte headerTransparent özelliği kullanılarak başlık çubuğunun arka planını şeffaf (transparent) hale getirilmiştir. Bu, genellikle bir ekranın üst kısmında başlık çubuğu olmasına rağmen, içerik alanının başlığın altına geçmesini sağlamak için kullanılır. Bu, ekran tasarımını özelleştirmek ve görünümü değiştirmek istediğinizde kullanışlı bir özelliktir.
+
+
+*****************************
+
+useSharedValue fonksiyonu, React Native'de animasyonlar ve Reanimated 2 kütüphanesi ile birlikte kullanılan bir özel bir "paylaşılan değer" (shared value) hook'udur. Bu hook, animasyon değerlerini paylaşmak ve bu değerler üzerinde çalışmak için kullanılır.
+
+Özellikle Reanimated 2 ile birlikte, animasyonlar performans ve kullanım açısından daha avantajlı bir şekilde yönetilebilir. useSharedValue fonksiyonu, animasyonun değerini bir "paylaşılan değer"e dönüştürür ve bu değeri güncelleyerek animasyonu kontrol etmenizi sağlar.
+
+Örnek kullanım:
+
+jsx
+Copy code
+import { useSharedValue } from 'react-native-reanimated';
+
+const opacity = useSharedValue(0);
+
+// opacity değerini güncelleyerek animasyonu kontrol etme
+opacity.value = 1;
+Bu örnekte, opacity adında bir paylaşılan değer oluşturulmuştur ve başlangıçta değeri 0 olarak ayarlanmıştır. Ardından, bu değer güncellenerek animasyon kontrol edilebilir. Bu paylaşılan değer, animasyonlarınızın çeşitli özelliklerini dinamik olarak değiştirmenizi sağlar.
+
+Reanimated 2 kullanarak animasyonlar yapmak için, bu paylaşılan değerleri kullanarak çeşitli animasyon işlemleri gerçekleştirebilirsiniz. Örneğin, withSpring, withTiming gibi fonksiyonlar kullanılarak bu paylaşılan değerlerle çeşitli animasyon efektleri oluşturabilirsiniz.
+Bu durumda () => ({ opacity: opacity.value }) ifadesi, bir fonksiyon ifadesidir ve bu fonksiyon bir nesne ifadesini içerir. useAnimatedStyle fonksiyonu bu ifadeyi değer olarak alır ve animasyonlu bir stil oluşturur.
