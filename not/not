@@ -126,6 +126,11 @@ Bu örnekte, asChild prop'u kullanılarak <button> öğesi, Link bileşeninin i�
 ******************
 <ParallaxScrollView/> bunu ilk olrak details cagirfik hata olduk bunum coymek icin consoldaki hatafdanbulduk 
 bir npm yukledik 
+https://github.com/i6mi6/react-native-parallax-scroll-view doc 
 sonra parallax stules olan require iolln yeride sildik dikkat et
 npm i deprecated-react-native-prop-types
 npm i deprecated-react-native-prop-types@2.2.0
+******************DEATIKS KULLANDIK
+navigation.setOptions fonksiyonu, bir ekranın navigasyon seçeneklerini güncellemek için kullanılır. Bu fonksiyon, genellikle bir ekranın başlık çubuğunu, başlık rengini, geçiş animasyonlarını veya diğer navigasyon seçeneklerini değiştirmek için kullanılır.
+
+Örneğin, sizin verdiğiniz örnekte headerTransparent özelliği kullanılarak başlık çubuğunun arka planını şeffaf (transparent) hale getirilmiştir. Bu, genellikle bir ekranın üst kısmında başlık çubuğu olmasına rağmen, içerik alanının başlığın altına geçmesini sağlamak için kullanılır. Bu, ekran tasarımını özelleştirmek ve görünümü değiştirmek istediğinizde kullanışlı bir özelliktir.
