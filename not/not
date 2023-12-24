@@ -99,3 +99,33 @@ Bu bileşik, cihazın fiziksel kenarlarına yakın olan bileşenleri, çentik, k
 User
  <ScrollView horizontal showsVerticalScrollIndicator={false}>  
  showsVerticalScrollIndicator prop'unu, dikey kaydırma çubuğunun gösterilip gösterilmeyeceğini kontrol etmek için kullanabilirsiniz. Ancak, <ScrollView> öğesinin yatay yönde kaydırılabilir olduğu bir durumda, dikey kaydırma çubuğu genellikle gereksizdir. Bu nedenle, showsVerticalScrollIndicator={false} kullanarak dikey kaydırma çubuğunu gizleyebilirsiniz.
+
+ ***************
+ 
+TouchableOpacity, React Native uygulamalarında kullanıcı etkileşimleri için kullanılan bir dokunma (tıklama) öğesidir
+
+*******************
+
+asChild prop'u, Link bileşenini kullanırken, bir bağlantıyı sadece bir çocuk öğe (child) olarak ele almasını sağlar. Bu, bağlantıya ek özellikler eklemek veya özel davranışlar uygulamak istediğinizde kullanışlıdır.
+
+Normalde, Link bileşeni bir dokümanın içinde bir bağlantıyı temsil etmek için kullanılır ve içerideki tüm öğeleri bir bağlantıyı takip eden öğeler olarak ele alır. Ancak, bazen bir bağlantının yalnızca bir öğe (örneğin bir düğme veya bir resim) olmasını ve tıklama olaylarını bu öğe üzerinde yönetmeyi tercih edebilirsiniz. İşte bu durumda asChild prop'u devreye girer.
+import React from "react";
+import { Link } from "expo-router";
+
+const ExampleComponent = () => {
+  return (
+    <Link href="/details" asChild>
+      <button>Detayları Görüntüle</button>
+    </Link>
+  );
+};
+
+export default ExampleComponent;
+Bu örnekte, asChild prop'u kullanılarak <button> öğesi, Link bileşeninin içinde yalnızca bir çocuk öğe olarak ele alınır ve bağlantının tıklama olayları bu düğme üzerinde yönetilir. Bu, özel bir tasarım veya özel davranışa sahip bir bağlantı oluşturmanın bir yoludur.ben burda reataurant tilayinca dertailsr gitemdi bende bunu unutmusum 
+****************
+******************
+<ParallaxScrollView/> bunu ilk olrak details cagirfik hata olduk bunum coymek icin consoldaki hatafdanbulduk 
+bir npm yukledik 
+sonra parallax stules olan require iolln yeride sildik dikkat et
+npm i deprecated-react-native-prop-types
+npm i deprecated-react-native-prop-types@2.2.0

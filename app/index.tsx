@@ -13,13 +13,13 @@ const Page = () => {
   return (
     
     <SafeAreaView style={styles.container}>
-    <ScrollView style={styles.scrollView}>
+    <ScrollView style={styles.scrollView} contentContainerStyle={{paddingBottom:40}}>
       <Categories/>
       <Text style={styles.text}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</Text>
+        To picks inyour neigbourhood</Text>
         <Restaurants/>
         <Text style={styles.text}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</Text>
+        offer near you</Text>
         <Restaurants/>
     </ScrollView>
   </SafeAreaView>
@@ -31,7 +31,7 @@ const Page = () => {
     container: {
       top: 100,
       backgroundColor:Colors.lightGrey,
-      height:160
+      flex:1
       
     },
     scrollView: {
@@ -40,7 +40,12 @@ const Page = () => {
       
     },
     text: {
-      fontSize: 42,
+      fontSize: 18,
+      fontWeight:'bold',
+      marginTop:16,
+      marginBottom:8,
+      paddingHorizontal:16,
+
     },
   });
 

@@ -8,7 +8,7 @@ const Categories = () => {
     <ScrollView horizontal showsVerticalScrollIndicator={false}>
       {categories?.map((item, index) => (
         <View style={styles.categoryCard} key={index}>
-          <Image source={item.img} />
+          <Image source={item.img} style={styles.imga} />
           <Text style={styles.categoryText}>{item.text} </Text>
         </View>
       ))}
@@ -38,6 +38,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
     alignItems: "center",
+    display:"flex"
   },
+  imga:{
+    width:80
+  }
 });
 export default Categories;
