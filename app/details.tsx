@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, SectionList } from "react-native";
 import React, { useLayoutEffect } from "react";
 import ParallaxScrollView from "../Components/ParallaxScrollView";
 import Colors from " @/constants/Colors";
@@ -8,6 +8,18 @@ import { Ionicons } from "@expo/vector-icons";
 
 const Details = () => {
   const navigation = useNavigation();
+   
+//burda dikkat et objw donfurduk ({} ypruik map ****)
+  const DATA = restaurant.food.map((item,index)=>({
+  
+    title:item.category,
+    data:item.meals,
+    index,
+   
+  }))
+
+
+
   useLayoutEffect(() => {
     console.log("first");
     navigation.setOptions({
@@ -57,10 +69,16 @@ const Details = () => {
           <View key="sticky-header" style={styles.stickySection}>
             <Text style={styles.stickySectionText}>{restaurant.name}</Text>
           </View>
-        )}
-      >
+        )}>
         <View style={styles.detailsContainer}>
-          <Text>Deatails</Text>
+          <Text style={styles.restaurantName}>{restaurant.name}</Text>
+          <Text style={styles.restaurantDescription}>{restaurant.delivery} . {restaurant.tags.map((tag,index)=>`${tag}${index<restaurant.tags.length -1 ? ",": ""}`)} </Text>
+          <Text style={styles.restaurantDescription}>{restaurant.about}</Text>
+          <SectionList sections={DATA} renderItem={({item})=>(
+             <Text>{item.name}</Text>
+          )
+           
+          }/>
         </View>
       </ParallaxScrollView>
     </>
@@ -97,6 +115,19 @@ const styles = StyleSheet.create({
   stickySectionText:{
     fontSize:20,
     margin:10,
-  }
+  },
+  restaurantName:{
+    fontSize:30,
+    margin:16,
+
+
+  },
+  restaurantDescription:{
+    fontSize:16,
+    margin:16,
+    color:Colors.medium
+    
+  },
+  
 });
 export default Details;
