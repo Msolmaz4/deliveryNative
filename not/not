@@ -94,3 +94,8 @@ npm install react-native-safe-area-context
 SafeAreaView bileşiği, React Native'de genellikle ekranın kenarlarına veya üst kısmına yerleştirilen diğer bileşenlerin, özellikle de iPhone X ve sonrasındaki cihazlardaki çentik veya altındaki ekranın altındaki sensör çubuğu gibi özel bölgelere karşı güvenli bir şekilde yerleştirilmesini sağlamak için kullanılır.
 
 Bu bileşik, cihazın fiziksel kenarlarına yakın olan bileşenleri, çentik, kenar veya altındaki sensör çubuğu gibi bölgelerden uzak tutarak, içerideki içeriğin kesilmemesini sağlar. Bu, özellikle iOS cihazlarında önemlidir, çünkü bazı cihazlarda çentik veya sensör çubuğu ekranın bir kısmını kaplar ve içeriği bu bölgelerle örtmemek önemlidir.
+********
+<ScrollView horizontal> kodu, genellikle bir kullanıcı arayüzü oluştururken yatay olarak kaydırılabilir içerikleri içeren bir bileşeni tanımlamak için kullanılır. 
+User
+ <ScrollView horizontal showsVerticalScrollIndicator={false}>  
+ showsVerticalScrollIndicator prop'unu, dikey kaydırma çubuğunun gösterilip gösterilmeyeceğini kontrol etmek için kullanabilirsiniz. Ancak, <ScrollView> öğesinin yatay yönde kaydırılabilir olduğu bir durumda, dikey kaydırma çubuğu genellikle gereksizdir. Bu nedenle, showsVerticalScrollIndicator={false} kullanarak dikey kaydırma çubuğunu gizleyebilirsiniz.

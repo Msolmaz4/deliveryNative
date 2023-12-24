@@ -1,5 +1,6 @@
 import Categories from ' @/Components/Categories';
 import Restaurants from ' @/Components/Restaurants';
+import Colors from ' @/constants/Colors';
 import {
   StyleSheet,
   Text,
@@ -29,12 +30,12 @@ const Page = () => {
   const styles = StyleSheet.create({
     container: {
       top: 100,
-      backgroundColor:"#fff",
+      backgroundColor:Colors.lightGrey,
       height:160
       
     },
     scrollView: {
-      backgroundColor: 'red',
+    
       marginHorizontal: 10,
       
     },
