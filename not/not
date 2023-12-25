@@ -156,3 +156,95 @@ Bu örnekte, opacity adında bir paylaşılan değer oluşturulmuştur ve başla
 
 Reanimated 2 kullanarak animasyonlar yapmak için, bu paylaşılan değerleri kullanarak çeşitli animasyon işlemleri gerçekleştirebilirsiniz. Örneğin, withSpring, withTiming gibi fonksiyonlar kullanılarak bu paylaşılan değerlerle çeşitli animasyon efektleri oluşturabilirsiniz.
 Bu durumda () => ({ opacity: opacity.value }) ifadesi, bir fonksiyon ifadesidir ve bu fonksiyon bir nesne ifadesini içerir. useAnimatedStyle fonksiyonu bu ifadeyi değer olarak alır ve animasyonlu bir stil oluşturur.
+***********************************
+
+TouchableOpacity içindeki ref kullanımının amacı, her bir öğeye erişmek ve bu öğelerle etkileşimde bulunmak için bir referans oluşturmaktır. ScrollView içindeki öğeleri takip etmek ve belirli bir öğeye erişim sağlamak için ref kullanılır.
+
+Burada itemsRef adlı bir referans nesnesi oluşturulmuş ve her öğe için bir referans atanıyor. itemsRef.current[index] = ref! ifadesi ile her öğe için bir referans elde edilmiş olur ve bu referanslar daha sonra başka bir yerde kullanılabilir.
+
+Bu tip kullanım özellikle dinamik olarak oluşturulan öğelerle çalışırken yararlıdır. Örneğin, belirli bir öğenin boyutunu veya konumunu programatik olarak ayarlamak veya belirli bir öğeye odaklanmak için bu referansları kullanabilirsiniz.
+
+Ayrıca, ref kullanımı, öğelerle etkileşimde bulunmak veya belirli bir öğeye odaklanmak gibi durumlar için geniş bir uygulama alanına sahiptir ve her duruma göre farklı kullanımları olabilir.
+******************************
+SafeAreaView bileşeni, ekranın kenarlarına yerleşik sistem çubukları veya diğer platform öğeleri tarafından kaplanabilecek içeriği sınırlamak için kullanılır. Bu bileşen, içeriğin ekran kenarlarına zarar görmesini önler ve içeriği kullanılabilir alan içinde tutar.
+
+edges prop'u, SafeAreaView'ın hangi kenarları koruması gerektiğini belirten bir dizi değer alır. Bu prop, aşağıdaki değerleri alabilir:
+
+'top': Üst kenarı korur.
+'bottom': Alt kenarı korur.
+'left': Sol kenarı korur.
+'right': Sağ kenarı korur.
+Yani, <SafeAreaView edges={["bottom"]}> ifadesiyle, sadece alt kenarın ('bottom') korunmasını sağlıyorsunuz. Bu özellik, özellikle alt çubuk veya navigasyon çubuğu gibi platforma özgü arayüz öğeleri ekranın alt kısmını kapladığında kullanışlıdır. Bu sayede, içerik bu kenarları aşındırmadan güvenli bir şekilde görüntülenebilir.
+
+********************************
+bu yuledik  npx expo install expo-haptics
+expo-haptics, Expo SDK içinde sunulan bir modüldür ve haptik geri bildirim (haptic feedback) sağlamak için kullanılır. Haptik geri bildirim, kullanıcının dokunmatik bir cihaz üzerinde etkileşimde bulunduğunda hissettiği titreşim veya dokunsal geri bildirimdir. Bu, kullanıcının bir düğmeye basma, bir işlem gerçekleştirme veya bir olaya tepki olarak bir titreşim hissetmesini sağlayarak kullanıcı deneyimini zenginleştirebilir.
+
+expo-haptics modülü, çeşitli platformlarda (iOS ve Android) haptik geri bildirimleri tetiklemek için kullanılabilir. Bu, kullanıcı etkileşimlerini daha dokunsal ve zengin hale getirmek için uygulamalara ek bir katman eklemenize olanak tanır.
+
+Bazı temel kullanım örnekleri şunları içerebilir:
+
+javascript
+Copy code
+import * as Haptics from 'expo-haptics';
+
+// Kısa bir titreşim
+Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+
+// Uzun bir titreşim
+Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+
+// Seçim geri bildirimi (yalnızca iOS)
+Haptics.selectionAsync();
+Bu örnekler, başarılı bir eylemi temsil etmek için kısa bir titreşim, bir ağır etki için uzun bir titreşim ve seçim işlemi için platforma özgü bir geri bildirim içermektedir. Haptik geri bildirim, kullanıcı arayüzünü daha zengin ve etkileşimli hale getirmek için kullanılabilir.
+
+************************************
+npm i zustand yukledik  https://github.com/pmndrs/zustand
+zustand, React uygulamalarında durum yönetimi için kullanılan bir state yönetim kütüphanesidir. Temel olarak, React uygulamalarında bileşenler arasında veri paylaşımını ve güncellemelerini kolaylaştırmak için tasarlanmıştır.
+
+zustand'ın temel özellikleri şunlardır:
+
+Minimal ve Hafif:
+zustand, minimalist bir API sunar ve küçük boyutludur. Karmaşıklığı azaltırken sade ve etkili bir şekilde durum yönetimi sağlar.
+
+Bağımsız Durum Yönetimi:
+Her bir zustand mağazası, kendi bağımsız durumunu ve işlevlerini yönetir. Bu, uygulamanın farklı bileşenlerinde bağımsız durumların kullanılmasını ve birbirinden etkilenmemesini sağlar.
+
+React Bağımlılığı Yok:
+zustand, React bağımlılığı olmadan kullanılabilir. Bu, React dışındaki diğer kütüphanelerle veya vanilla JavaScript projeleriyle entegrasyonu kolaylaştırır.
+
+React Bağlamından Türetilmiş:
+zustand, React bağlamına dayalı bir yapı üzerine inşa edilmiştir. Bu sayede, React bağlamının kullanımıyla benzer bir API sunar, ancak performans ve optimize edilmiş güncelleme stratejileri ile birlikte gelir.
+
+React Hooks Desteği:
+zustand, React Hooks'u destekler ve useState, useEffect gibi React Hooks'ları ile birlikte kullanılabilir.
+
+İşte basit bir zustand örneği:
+
+javascript
+Copy code
+import create from 'zustand';
+
+const useStore = create((set) => ({
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
+}));
+
+// Kullanım
+function MyComponent() {
+  const { count, increment, decrement } = useStore();
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+}
+Bu örnekte, useStore adlı bir mağaza oluşturulmuş ve bu mağaza içinde count, increment ve decrement durumları tanımlanmıştır. useStore hook'u, bu durumları kullanarak bileşen içinde kullanılabilir. zustand, bu tür durumlar için daha karmaşık senaryoları da kolayca ele alabilir.
+*************************
+npm i react-native-confetti-cannon confettiyukldekik
+sonolarak bu sayfadan doc kullandik
+https://github.com/software-mansion/react-native-gesture-handler/blob/main/example/src/showcase/swipeable/GmailStyleSwipeableRow.tsx

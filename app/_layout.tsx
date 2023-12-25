@@ -67,6 +67,39 @@ export default function RootLayoutNav() {
             ),
           }}
         ></Stack.Screen>
+        <Stack.Screen
+          name="(modal)/dish"
+          options={{
+            presentation: "modal",
+            headerTitle: "",
+            headerTransparent:true,
+
+            headerLeft: () => (
+              <TouchableOpacity style={{backgroundColor:"#fff",borderRadius:20 ,padding:6}}
+                onPress={() => {
+                  navigation.goBack();
+                }}
+              >
+                <Ionicons
+                  name="close-outline"
+                  size={28}
+                  color={Colors.primary}
+                ></Ionicons>
+              </TouchableOpacity>
+            ),
+          }}
+        ></Stack.Screen>
+        <Stack.Screen name="basket"
+          options = {{
+            headerTitle:"Basket",
+            headerLeft:()=>(
+              <TouchableOpacity onPress={()=>navigation.goBack()}>
+                <Ionicons name='arrow-back' size={28} color={Colors.primary}/>
+
+              </TouchableOpacity>
+            )
+          }}>
+        </Stack.Screen>
       </Stack>
     </BottomSheetModalProvider>
   );
