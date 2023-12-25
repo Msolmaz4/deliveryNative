@@ -45,7 +45,7 @@ const Basket = () => {
               <View style={{ height: 1, backgroundColor: Colors.grey }} />
             )}
             renderItem={({ item }) => (
-                <SwipeableRow>
+                <SwipeableRow onDelete={()=>reduceProduct(item)}>
               <View style={styles.row}>
                 <Text style={{ fontSize: 18 }}>{item.quantity}x</Text>
                 <Text style={{ flex: 1, fontSize: 18 }}>{item.name}</Text>

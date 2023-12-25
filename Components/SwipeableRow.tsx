@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons';
 import React, { Component, PropsWithChildren } from 'react';
 import { Animated, StyleSheet, I18nManager, View } from 'react-native';
 
@@ -5,24 +6,20 @@ import { RectButton } from 'react-native-gesture-handler';
 
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-const AnimatedView = Animated.createAnimatedComponent(View);
+
 
 export default class SwipeableRow extends Component<
-  PropsWithChildren<unknown>> {
+  PropsWithChildren<unknown & {onDelete:()=>void}>> {
 
   private renderRightActions = (
     _progress: Animated.AnimatedInterpolation<number>,
     dragX: Animated.AnimatedInterpolation<number>
   ) => {
-    const scale = dragX.interpolate({
-      inputRange: [-80, 0],
-      outputRange: [1, 0],
-      extrapolate: 'clamp',
-    });
+   
     return (
       <RectButton style={styles.rightAction} onPress={this.close}>
         {/* Change it to some icons */}
-        
+        <Ionicons name='trash-outline' size={24} color="white" style={{marginRight:10}}/>
         {/* <AnimatedView style={[styles.actionIcon, { transform: [{ scale }] }]} /> */}
       </RectButton>
     );
@@ -35,6 +32,7 @@ export default class SwipeableRow extends Component<
   };
   private close = () => {
     this.swipeableRow?.close();
+    this.props.onDelete();
   };
   render() {
     const { children } = this.props;
@@ -45,7 +43,7 @@ export default class SwipeableRow extends Component<
         leftThreshold={80}
         enableTrackpadTwoFingerGesture
         rightThreshold={40}
-        renderLeftActions={this.renderLeftActions}
+       
         renderRightActions={this.renderRightActions}>
         {children}
       </Swipeable>
@@ -54,19 +52,8 @@ export default class SwipeableRow extends Component<
 }
 
 const styles = StyleSheet.create({
-  leftAction: {
-    flex: 1,
-    backgroundColor: '#388e3c',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    flexDirection: I18nManager.isRTL ? 'row' : 'row-reverse',
-  },
-  actionIcon: {
-    width: 30,
-    marginHorizontal: 10,
-    backgroundColor: 'plum',
-    height: 20,
-  },
+
+
   rightAction: {
     alignItems: 'center',
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
